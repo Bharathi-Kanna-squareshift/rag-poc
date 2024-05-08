@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.controller import QueryController
+from app.controller.query_controller import QueryController
 
 app = FastAPI()
 
