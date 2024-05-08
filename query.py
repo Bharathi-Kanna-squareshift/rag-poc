@@ -2,7 +2,7 @@
 from llama_index.core import VectorStoreIndex, QueryBundle, Response, Settings
 from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.llms.ollama import Ollama
-from index import es_vector_store  # Update this import statement
+from index import es_vector_store
 
 def run_query(query: str) -> Response:
     # Local LLM to send user query to
