@@ -19,7 +19,7 @@ def get_documents_from_file(file):
                 for
                 item in conversations_dict]
    return documents
-# index.py
+
 
 # Load .env file contents into env
 # ELASTIC_CLOUD_ID and ELASTIC_API_KEY are expected to be in the .env file.
@@ -57,4 +57,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
