@@ -1,18 +1,20 @@
+
 from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel
 from app.service import MyService
+from pydantic import BaseModel
 
-from app.controller import QueryRequest
+class QueryRequest(BaseModel):
+    query: str
 
-router = APIRouter()
+class QueryController:
+    def __init__(self):
+        self.router = APIRouter()
+        self.service = MyService()
 
-
-my_service = MyService()
-
-@router.post("/query")
-def process_query(query_request: QueryRequest):
-    try:
-        result = my_service.query_vector_store(query_request.query)
-        return {"result": result}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        @self.router.post("/query")
+        def process_query(query_request: QueryRequest):
+            try:
+                result = self.service.query_vector_store(query_request.query)
+                return {"result": result}
+            except Exception as e:
+                raise HTTPException(status_code=500, detail=str(e))
