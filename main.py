@@ -6,7 +6,6 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-# Allow requests from all origins
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -15,7 +14,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app = FastAPI()
 
 @app.post("/process-query")
 def process_query(query_request: dict):
